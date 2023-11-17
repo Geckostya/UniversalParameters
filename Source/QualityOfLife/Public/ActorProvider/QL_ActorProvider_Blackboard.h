@@ -12,7 +12,7 @@
  * ActorProvider that gets value from the blackboard key
  * It works only inside instanced BTNodes!
  */
-UCLASS()
+UCLASS(DisplayName="Actor Blackboard")
 class QUALITYOFLIFE_API UQL_ActorProvider_Blackboard : public UQL_ActorProvider
 {
 	GENERATED_BODY()
@@ -22,6 +22,6 @@ public:
 
 	virtual AActor* GetActor_Implementation() override;
 
-	UPROPERTY(EditAnywhere, Category="Float Provider")
+	UPROPERTY(EditAnywhere, Category="Actor Provider")
 	FBlackboardKeySelector BlackboardKey;
 };

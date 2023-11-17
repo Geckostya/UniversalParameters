@@ -6,7 +6,7 @@
 /**
  * Blueprints instanceable wrapper around float to float function 
  */
-UCLASS(Abstract, Blueprintable, BlueprintType, DefaultToInstanced, EditInlineNew)
+UCLASS(Abstract, Blueprintable, BlueprintType, DefaultToInstanced, EditInlineNew, CollapseCategories)
 class QUALITYOFLIFE_API UQL_FloatFunction : public UObject
 {
 	GENERATED_BODY()
@@ -16,4 +16,6 @@ public:
     float Eval(float Value);
 
     virtual float Eval_Implementation(float Value);
+	
+	static float EvalSafe(UQL_FloatFunction* Function, float Value);
 };

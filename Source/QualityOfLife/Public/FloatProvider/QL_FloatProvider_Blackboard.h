@@ -11,7 +11,7 @@
  * FloatProvider that gets value from the blackboard key
  * It works only inside instanced BTNodes!
  */
-UCLASS()
+UCLASS(DisplayName="Blackboard")
 class QUALITYOFLIFE_API UQL_FloatProvider_Blackboard : public UQL_FloatProvider
 {
 	GENERATED_BODY()

@@ -6,7 +6,7 @@
 /**
  *  Blueprint instanceable wrapper around float
  */
-UCLASS(Abstract, Blueprintable, BlueprintType, DefaultToInstanced, EditInlineNew)
+UCLASS(Abstract, Blueprintable, BlueprintType, DefaultToInstanced, EditInlineNew, CollapseCategories)
 class QUALITYOFLIFE_API UQL_FloatProvider : public UObject
 {
 	GENERATED_BODY()
@@ -16,4 +16,6 @@ public:
     float GetValue();
 
     virtual float GetValue_Implementation();
+
+	static float GetValueSafe(UQL_FloatProvider* Provider);
 };
