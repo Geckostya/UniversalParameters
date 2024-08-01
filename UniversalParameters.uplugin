@@ -1,0 +1,24 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "1.0",
+	"FriendlyName": "Universal Parameters",
+	"Description": "Plugins for separating logic and data source for Behavior Tree, EQS and etc",
+	"Category": "Code Plugins",
+	"CreatedBy": "Geckostya",
+	"CreatedByURL": "",
+	"DocsURL": "",
+	"MarketplaceURL": "",
+	"SupportURL": "",
+	"CanContainContent": true,
+	"IsBetaVersion": false,
+	"IsExperimentalVersion": false,
+	"Installed": false,
+	"Modules": [
+		{
+			"Name": "UniversalParameters",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		}
+	]
+}
