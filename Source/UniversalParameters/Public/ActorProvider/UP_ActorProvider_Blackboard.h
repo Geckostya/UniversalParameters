@@ -10,7 +10,7 @@
 
 /**
  * ActorProvider that gets value from the blackboard key
- * It works only inside instanced BTNodes!
+ * Needs FUP_EvaluationContext_Blackboard Context
  */
 UCLASS(DisplayName="Actor Blackboard")
 class UNIVERSALPARAMETERS_API UUP_ActorProvider_Blackboard : public UUP_ActorProvider
@@ -20,8 +20,11 @@ public:
 	
 	UUP_ActorProvider_Blackboard(const FObjectInitializer& ObjectInitializer);
 
-	virtual AActor* GetActor_Implementation() override;
+	virtual AActor* GetActor(const FUP_EvaluationContext* Context) override;
 
-	UPROPERTY(EditAnywhere, Category="Actor Provider")
+	UPROPERTY(EditAnywhere, Category=UniversalParameters)
 	FBlackboardKeySelector BlackboardKey;
+
+protected:
+	virtual void GetBBKeys(TArray<FBlackboardKeySelector*>& Keys) override;
 };

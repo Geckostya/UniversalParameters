@@ -1,6 +1,11 @@
 #include "FloatProvider/UP_FloatProvider.h"
 
-float UUP_FloatProvider::GetValue_Implementation() 
+float UUP_FloatProvider::GetValue_BP()
 {
-    return 0.0f;
+    return GetValue(nullptr);
+}
+
+float UUP_FloatProvider::GetValue(const FUP_EvaluationContext* Context)
+{
+    return 0;
 }

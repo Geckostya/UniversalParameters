@@ -27,15 +27,20 @@ class UNIVERSALPARAMETERS_API UUP_BoolProvider_FloatCompare : public UUP_BoolPro
 
 public:
 	UUP_BoolProvider_FloatCompare(const FObjectInitializer& ObjectInitializer);
-	
-	virtual bool GetValue_Implementation() override;
-	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, NoClear, Category="Bool Provider")
+		
+	virtual bool GetValue(const FUP_EvaluationContext* Context) override;
+		
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, NoClear, Category=UniversalParameters)
 	UUP_FloatProvider* FirstParam;
 	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Bool Function")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=UniversalParameters)
 	EUP_CompareOperation Operation;
 	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, NoClear, Category="Bool Provider")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, NoClear, Category=UniversalParameters)
 	UUP_FloatProvider* SecondParam;
+
+protected:
+	bool CalcValue(float FirstSafe, float SecondSafe);
+	
+	virtual void GetBBKeys(TArray<FBlackboardKeySelector*>& Keys) override;
 };

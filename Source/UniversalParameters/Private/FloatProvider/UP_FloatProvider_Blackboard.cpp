@@ -3,31 +3,19 @@
 
 #include "FloatProvider/UP_FloatProvider_Blackboard.h"
 
-#include "UniversalParameters.h"
-#include "BehaviorTree/BTFunctionLibrary.h"
-#include "BehaviorTree/BTTaskNode.h"
+#include "BehaviorTree/Blackboard/BlackboardKeyType_Float.h"
 
 UUP_FloatProvider_Blackboard::UUP_FloatProvider_Blackboard(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer)
 {
 	BlackboardKey.AddFloatFilter(this, GET_MEMBER_NAME_CHECKED(UUP_FloatProvider_Blackboard, BlackboardKey));
 }
 
-float UUP_FloatProvider_Blackboard::GetValue_Implementation()
+float UUP_FloatProvider_Blackboard::GetValue(const FUP_EvaluationContext* Context)
 {
-	if (UBTNode* NodeOwner = Cast<UBTNode>(GetOuter()))
-	{
-		check(NodeOwner->IsInstanced());
-		return UBTFunctionLibrary::GetBlackboardValueAsFloat(NodeOwner, BlackboardKey);
-	}
-	UE_LOG(LogUniversalParameters, Error, TEXT("Called GetValue from UP_FloatProvider_BlackBoard which do not belong to BTNode. Owner is %s"), *GetNameSafe(GetOuter()))
-	return 0.0f;
+	return GetFromBB<UBlackboardKeyType_Float>(BlackboardKey, Context);
 }
 
-void UUP_FloatProvider_Blackboard::ResolveSelectedKey(UBTNode* BehaviorNode)
+void UUP_FloatProvider_Blackboard::GetBBKeys(TArray<FBlackboardKeySelector*>& Keys)
 {
-	UBlackboardData* BBAsset = BehaviorNode->GetBlackboardAsset();
-	if (ensure(BBAsset))
-	{
-		BlackboardKey.ResolveSelectedKey(*BBAsset);
-	}
+	Keys.Add(&BlackboardKey);
 }

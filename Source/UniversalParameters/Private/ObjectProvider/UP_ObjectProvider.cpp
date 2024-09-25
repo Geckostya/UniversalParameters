@@ -3,12 +3,12 @@
 
 #include "ObjectProvider/UP_ObjectProvider.h"
 
-UObject* UUP_ObjectProvider::GetObject_Implementation()
+UObject* UUP_ObjectProvider::GetObject_BP()
 {
-	return nullptr;
+	return GetObject(nullptr);
 }
 
-UObject* UUP_ObjectProvider::GetObjectSafe(UUP_ObjectProvider* Provider)
+UObject* UUP_ObjectProvider::GetObject(const FUP_EvaluationContext* Context)
 {
-	return Provider ? Provider->GetObject() : nullptr;
+	return nullptr;
 }

@@ -13,5 +13,5 @@ class UNIVERSALPARAMETERS_API UUP_FloatFunction_Identity : public UUP_FloatFunct
 	GENERATED_BODY()
 
 public:
-	virtual float Eval_Implementation(float Value) override;
+	virtual float Eval(float Value, const FUP_EvaluationContext* Context) override;
 };

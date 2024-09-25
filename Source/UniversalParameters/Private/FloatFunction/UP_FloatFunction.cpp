@@ -1,11 +1,11 @@
 #include "FloatFunction/UP_FloatFunction.h"
 
-float UUP_FloatFunction::Eval_Implementation(float Value) 
+float UUP_FloatFunction::Eval_BP(float Value)
 {
-	return 0.0f;
+	return Eval(Value, nullptr);
 }
 
-float UUP_FloatFunction::EvalSafe(UUP_FloatFunction* Function, float Value)
+float UUP_FloatFunction::Eval(float Value, const FUP_EvaluationContext* Context)
 {
-	return Function ? Function->Eval(Value) : 0;
+	return 0.0f;
 }

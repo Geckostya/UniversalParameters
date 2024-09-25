@@ -1,6 +1,6 @@
 #include "FloatFunction/UP_FloatFunction_UnaryOperation.h"
 
-float UUP_FloatFunction_UnaryOperation::Eval_Implementation(float Value)
+float UUP_FloatFunction_UnaryOperation::Eval(float Value, const FUP_EvaluationContext* Context)
 {
 	switch (Operation)
 	{

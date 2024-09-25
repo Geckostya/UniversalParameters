@@ -20,8 +20,11 @@ public:
 	
 	UUP_ObjectProvider_Blackboard(const FObjectInitializer& ObjectInitializer);
 
-	virtual UObject* GetObject_Implementation() override;
+	virtual UObject* GetObject(const FUP_EvaluationContext* Context) override;
 
-	UPROPERTY(EditAnywhere, Category="Object Provider")
+	UPROPERTY(EditAnywhere, Category=UniversalParameters)
 	FBlackboardKeySelector BlackboardKey;
+
+protected:
+	virtual void GetBBKeys(TArray<FBlackboardKeySelector*>& Keys) override;
 };

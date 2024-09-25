@@ -1,11 +1,11 @@
 #include "BoolProvider/UP_BoolProvider.h"
 
-bool UUP_BoolProvider::GetValue_Implementation() 
+bool UUP_BoolProvider::GetValue_BP()
 {
-    return false;
+    return GetValue(nullptr);
 }
 
-bool UUP_BoolProvider::GetValueSafe(UUP_BoolProvider* Provider)
+bool UUP_BoolProvider::GetValue(const FUP_EvaluationContext* Context)
 {
-    return Provider ? Provider->GetValue() : false; 
+    return false;
 }

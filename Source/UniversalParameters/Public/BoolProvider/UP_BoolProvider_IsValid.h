@@ -15,8 +15,11 @@ class UNIVERSALPARAMETERS_API UUP_BoolProvider_IsValid : public UUP_BoolProvider
 	GENERATED_BODY()
 
 public:
-	virtual bool GetValue_Implementation() override;
+	virtual bool GetValue(const FUP_EvaluationContext* Context) override;
 	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, NoClear, Category="Object Provider")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, NoClear, Category=UniversalParameters)
 	UUP_ObjectProvider* ObjectProvider;
+
+protected:
+	virtual void GetBBKeys(TArray<FBlackboardKeySelector*>& Keys) override;
 };

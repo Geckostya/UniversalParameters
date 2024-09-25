@@ -9,7 +9,7 @@
 
 /**
  * BoolProvider that gets value from the blackboard key
- * It works only inside instanced BTNodes!
+ * Needs FUP_EvaluationContext_Blackboard Context
  */
 UCLASS(DisplayName="Blackboard")
 class UNIVERSALPARAMETERS_API UUP_BoolProvider_Blackboard : public UUP_BoolProvider
@@ -17,11 +17,13 @@ class UNIVERSALPARAMETERS_API UUP_BoolProvider_Blackboard : public UUP_BoolProvi
 	GENERATED_BODY()
 
 public:
-
 	UUP_BoolProvider_Blackboard(const FObjectInitializer& ObjectInitializer);
 	
-	virtual bool GetValue_Implementation() override;
-	
-	UPROPERTY(EditAnywhere, Category="Bool Provider")
+	virtual bool GetValue(const FUP_EvaluationContext* Context) override;
+
+	UPROPERTY(EditAnywhere, Category=UniversalParameters)
 	FBlackboardKeySelector BlackboardKey;
+
+protected:
+	virtual void GetBBKeys(TArray<FBlackboardKeySelector*>& Keys) override;
 };

@@ -3,21 +3,20 @@
 
 #include "ObjectProvider/UP_ObjectProvider_Blackboard.h"
 
-#include "UniversalParameters.h"
 #include "BehaviorTree/BTFunctionLibrary.h"
-#include "BehaviorTree/BTNode.h"
+#include "BehaviorTree/Blackboard/BlackboardKeyType_Object.h"
 
 UUP_ObjectProvider_Blackboard::UUP_ObjectProvider_Blackboard(const FObjectInitializer& ObjectInitializer)
 {
 	BlackboardKey.AddObjectFilter(this, GET_MEMBER_NAME_CHECKED(UUP_FloatProvider_Blackboard, BlackboardKey), UObject::StaticClass());
 }
 
-UObject* UUP_ObjectProvider_Blackboard::GetObject_Implementation()
+UObject* UUP_ObjectProvider_Blackboard::GetObject(const FUP_EvaluationContext* Context)
 {
-	if (UBTNode* NodeOwner = Cast<UBTNode>(GetOuter()))
-	{
-		return UBTFunctionLibrary::GetBlackboardValueAsObject(NodeOwner, BlackboardKey);
-	}
-	UE_LOG(LogUniversalParameters, Error, TEXT("Called GetObject from UP_ObjectProvider_Blackboard which do not belong to BTNode. Owner is %s"), *GetNameSafe(GetOuter()))
-	return nullptr;
+	return GetFromBB<UBlackboardKeyType_Object>(BlackboardKey, Context);
+}
+
+void UUP_ObjectProvider_Blackboard::GetBBKeys(TArray<FBlackboardKeySelector*>& Keys)
+{
+	Keys.Add(&BlackboardKey);
 }

@@ -7,22 +7,29 @@ UUP_FloatFunction_BinaryOperation::UUP_FloatFunction_BinaryOperation(const FObje
 	SecondParam = ObjectInitializer.CreateDefaultSubobject<UUP_FloatProvider_Constant>(this, "SecondParam");
 }
 
-float UUP_FloatFunction_BinaryOperation::Eval_Implementation(float Value)
+float UUP_FloatFunction_BinaryOperation::Eval(float Value, const FUP_EvaluationContext* Context)
 {
+	float SecondValue = UUP_FloatProvider::GetValueSafe(SecondParam, Context);
+
 	switch (Operation)
 	{
 	case EUP_BinaryFunctionOperation::Plus:
-		return Value + UUP_FloatProvider::GetValueSafe(SecondParam);
+		return Value + SecondValue;
 		
 	case EUP_BinaryFunctionOperation::Minus:
-		return Value - UUP_FloatProvider::GetValueSafe(SecondParam);
+		return Value - SecondValue;
 		
 	case EUP_BinaryFunctionOperation::Multiply:
-		return Value * UUP_FloatProvider::GetValueSafe(SecondParam);
+		return Value * SecondValue;
 		
 	case EUP_BinaryFunctionOperation::Divide:
-		return Value / UUP_FloatProvider::GetValueSafe(SecondParam);
+		return Value / SecondValue;
 	default: ;
 	}
 	return 0;
+}
+
+void UUP_FloatFunction_BinaryOperation::GetBBKeys(TArray<FBlackboardKeySelector*>& Keys)
+{
+	GetBBKeysSafe(SecondParam, Keys);
 }

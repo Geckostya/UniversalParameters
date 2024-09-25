@@ -23,9 +23,9 @@ public:
 
 	virtual FString GetStaticDescription() const override;
 	
-	UPROPERTY(EditAnywhere, Category="Universal Parameters", NoClear)
+	UPROPERTY(EditAnywhere, Category=UniversalParameters, NoClear)
 	UUP_FloatProvider* WaitTimeProvider;
 
-	UPROPERTY(EditAnywhere, Category="Universal Parameters")
+	UPROPERTY(EditAnywhere, Category=UniversalParameters)
 	UUP_FloatProvider* DeviationProvider = nullptr;
 };

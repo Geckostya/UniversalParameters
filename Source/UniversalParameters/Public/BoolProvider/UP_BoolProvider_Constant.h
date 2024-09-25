@@ -13,8 +13,8 @@ class UNIVERSALPARAMETERS_API UUP_BoolProvider_Constant : public UUP_BoolProvide
 	GENERATED_BODY()
 
 public:
-	virtual bool GetValue_Implementation() override;
+	virtual bool GetValue(const FUP_EvaluationContext* Context) override;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Bool Provider")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=UniversalParameters)
 	bool bValue = false;
 };

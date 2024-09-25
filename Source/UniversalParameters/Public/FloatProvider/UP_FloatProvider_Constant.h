@@ -13,8 +13,8 @@ class UNIVERSALPARAMETERS_API UUP_FloatProvider_Constant : public UUP_FloatProvi
 	GENERATED_BODY()
 
 public:
-	virtual float GetValue_Implementation() override;
+	virtual float GetValue(const FUP_EvaluationContext* Context) override;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Float Provider")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=UniversalParameters)
 	float Value = 0.0f;
 };

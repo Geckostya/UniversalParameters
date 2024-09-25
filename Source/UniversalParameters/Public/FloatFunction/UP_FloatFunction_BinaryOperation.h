@@ -26,11 +26,14 @@ class UNIVERSALPARAMETERS_API UUP_FloatFunction_BinaryOperation : public UUP_Flo
 public:
 	UUP_FloatFunction_BinaryOperation(const FObjectInitializer& ObjectInitializer);
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Float Function")
+	virtual float Eval(float Value, const FUP_EvaluationContext* Context) override;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=UniversalParameters)
 	EUP_BinaryFunctionOperation Operation;
 	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, NoClear, Category="Float Function")
-	UUP_FloatProvider* SecondParam;
-	
-	virtual float Eval_Implementation(float Value) override;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, NoClear, Category=UniversalParameters)
+	UUP_FloatProvider* SecondParam;	
+
+protected:
+	virtual void GetBBKeys(TArray<FBlackboardKeySelector*>& Keys) override;
 };

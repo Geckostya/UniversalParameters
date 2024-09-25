@@ -13,13 +13,13 @@ class UNIVERSALPARAMETERS_API UUP_FloatProvider_Counter : public UUP_FloatProvid
 	GENERATED_BODY()
 	
 public:
-	virtual float GetValue_Implementation() override;
+	virtual float GetValue(const FUP_EvaluationContext* Context) override;
 
 	// Base value to count from
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Float Provider")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=UniversalParameters)
 	float BaseValue = 0.0f;
 
 	// Delta value which will be added to the BaseValue every call
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Float Provider")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=UniversalParameters)
 	float Delta = 1.0f;
 };

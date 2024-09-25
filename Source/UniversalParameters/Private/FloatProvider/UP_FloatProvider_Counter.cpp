@@ -1,6 +1,6 @@
 #include "FloatProvider/UP_FloatProvider_Counter.h"
 
-float UUP_FloatProvider_Counter::GetValue_Implementation() 
+float UUP_FloatProvider_Counter::GetValue(const FUP_EvaluationContext* Context)
 {
 	return BaseValue += Delta;
 }

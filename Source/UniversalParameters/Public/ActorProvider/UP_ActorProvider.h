@@ -16,10 +16,15 @@ class UNIVERSALPARAMETERS_API UUP_ActorProvider : public UUP_ObjectProvider
 	GENERATED_BODY()
 	
 public:
-	UFUNCTION(BlueprintCallable, BlueprintNativeEvent, Category="Actor Provider")
-	AActor* GetActor();
+	UFUNCTION(BlueprintCallable, Category=UniversalParameters, DisplayName=GetActor)
+	AActor* GetActor_BP();
 
-	virtual UObject* GetObject_Implementation() override;
+	virtual AActor* GetActor(const FUP_EvaluationContext* Context);
 
-	static AActor* GetActorSafe(UUP_ActorProvider* Provider);
+	virtual UObject* GetObject(const FUP_EvaluationContext* Context) override;
+	
+	FORCEINLINE static AActor* GetActorSafe(UUP_ActorProvider* Provider, const FUP_EvaluationContext* Context)
+	{
+		return Provider ? Provider->GetActor(Context) : nullptr;
+	}
 };

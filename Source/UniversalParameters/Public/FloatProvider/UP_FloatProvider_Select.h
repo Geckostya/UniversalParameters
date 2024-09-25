@@ -18,15 +18,18 @@ class UNIVERSALPARAMETERS_API UUP_FloatProvider_Select : public UUP_FloatProvide
 	
 public:
 	UUP_FloatProvider_Select(const FObjectInitializer& Initializer);
+
+	virtual float GetValue(const FUP_EvaluationContext* Context) override;
 	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, NoClear, Category="Float Provider")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, NoClear, Category=UniversalParameters)
 	UUP_BoolProvider* If;
 	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, NoClear, Category="Float Provider")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, NoClear, Category=UniversalParameters)
 	UUP_FloatProvider* Then;
 	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, NoClear, Category="Float Provider")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, NoClear, Category=UniversalParameters)
 	UUP_FloatProvider* Else;
 
-	virtual float GetValue_Implementation() override;
+protected:
+	virtual void GetBBKeys(TArray<FBlackboardKeySelector*>& Keys) override;
 };

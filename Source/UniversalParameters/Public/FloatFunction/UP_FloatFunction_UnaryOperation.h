@@ -22,8 +22,8 @@ class UNIVERSALPARAMETERS_API UUP_FloatFunction_UnaryOperation : public UUP_Floa
 	GENERATED_BODY()
 
 public:
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Float Function")
-	EUP_UnaryFunctionOperation Operation;
+	virtual float Eval(float Value, const FUP_EvaluationContext* Context) override;
 	
-	virtual float Eval_Implementation(float Value) override;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=UniversalParameters)
+	EUP_UnaryFunctionOperation Operation;
 };
