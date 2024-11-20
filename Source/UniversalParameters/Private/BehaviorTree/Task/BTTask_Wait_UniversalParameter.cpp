@@ -7,7 +7,10 @@
 UBTTask_Wait_UniversalParameter::UBTTask_Wait_UniversalParameter(const FObjectInitializer& ObjectInitializer)
 {
 	NodeName = "Wait (UP)";
-	WaitTimeProvider = NewObject<UUP_FloatProvider_Constant>(this, "WaitTime");
+	if (!HasAnyFlags(RF_ClassDefaultObject))
+	{
+		WaitTimeProvider = ObjectInitializer.CreateDefaultSubobject<UUP_FloatProvider_Constant>(this, "WaitTime");
+	}
 }
 
 void UBTTask_Wait_UniversalParameter::InitializeFromAsset(UBehaviorTree& Asset)
@@ -29,7 +32,7 @@ EBTNodeResult::Type UBTTask_Wait_UniversalParameter::ExecuteTask(UBehaviorTreeCo
 FString UBTTask_Wait_UniversalParameter::GetStaticDescription() const
 {
 #if WITH_EDITORONLY_DATA
-	FString WaitProviderName = WaitTimeProvider->GetClass()->GetDisplayNameText().ToString();
+	FString WaitProviderName = WaitTimeProvider != nullptr ? WaitTimeProvider->GetClass()->GetDisplayNameText().ToString() : TEXT("Null");
 	if (DeviationProvider != nullptr)
 	{
 		FString DeviationProviderName = DeviationProvider->GetClass()->GetDisplayNameText().ToString();

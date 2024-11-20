@@ -5,7 +5,7 @@
 
 #include "BehaviorTree/BTNode.h"
 
-FUP_EvaluationContext_Blackboard::FUP_EvaluationContext_Blackboard(UBehaviorTreeComponent& BTComponent)
+FUP_EvaluationContext_Blackboard::FUP_EvaluationContext_Blackboard(const UBehaviorTreeComponent& BTComponent)
 {
 	Blackboard = BTComponent.GetBlackboardComponent();
 }
@@ -25,4 +25,26 @@ void UUP_Accessor::InitializeWithBT(UBTNode* BehaviorNode)
 
 void UUP_Accessor::GetBBKeys(TArray<FBlackboardKeySelector*>& Keys)
 {
+}
+
+TUniquePtr<FUP_EvaluationContext> UUP_Accessor::TryGetContextFromObject(const UObject* Object)
+{
+	FUP_EvaluationContext* Context = nullptr;
+		
+	for (const UObject* ObjectHierarchy = Object; ObjectHierarchy != nullptr; ObjectHierarchy = ObjectHierarchy->GetOuter())
+	{
+		if (TryGetContextFromPawn(ObjectHierarchy, Context))
+		{
+			break;
+		}
+		if (TryGetContextFromAIController(ObjectHierarchy, Context))
+		{
+			break;
+		}
+		if (TryGetContextFromBehaviorTreeComponent(ObjectHierarchy, Context))
+		{
+			break;
+		}
+	}
+	return TUniquePtr<FUP_EvaluationContext>(Context);
 }

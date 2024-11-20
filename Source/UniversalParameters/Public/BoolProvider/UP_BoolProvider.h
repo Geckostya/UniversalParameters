@@ -7,7 +7,7 @@
 /**
  *  Blueprint instanceable wrapper around bool
  */
-UCLASS(Abstract, Blueprintable, BlueprintType, DefaultToInstanced, EditInlineNew, CollapseCategories)
+UCLASS(Abstract, Blueprintable, BlueprintType, DefaultToInstanced, EditInlineNew, CollapseCategories, Category=UniversalParameters)
 class UNIVERSALPARAMETERS_API UUP_BoolProvider : public UUP_Accessor
 {
 	GENERATED_BODY()
@@ -15,6 +15,9 @@ class UNIVERSALPARAMETERS_API UUP_BoolProvider : public UUP_Accessor
 public:
     UFUNCTION(BlueprintCallable, Category=UniversalParameters)
     bool GetValue_BP();
+	
+	UFUNCTION(BlueprintCallable, Category=UniversalParameters, DisplayName=GetValueWithContext)
+	bool GetValueWithContext_BP(const UObject* ContextObject);
 
 	virtual bool GetValue(const FUP_EvaluationContext* Context);
 	

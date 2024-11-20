@@ -10,7 +10,7 @@
 /**
  *  Blueprint instanceable wrapper around Object
  */
-UCLASS(Abstract, Blueprintable, BlueprintType, DefaultToInstanced, EditInlineNew, CollapseCategories)
+UCLASS(Abstract, Blueprintable, BlueprintType, DefaultToInstanced, EditInlineNew, CollapseCategories, Category=UniversalParameters)
 class UNIVERSALPARAMETERS_API UUP_ObjectProvider : public UUP_Accessor
 {
 	GENERATED_BODY()
@@ -18,6 +18,9 @@ class UNIVERSALPARAMETERS_API UUP_ObjectProvider : public UUP_Accessor
 public:
 	UFUNCTION(BlueprintCallable, Category=UniversalParameters, DisplayName=GetObject)
 	UObject* GetObject_BP();
+	
+	UFUNCTION(BlueprintCallable, Category=UniversalParameters, DisplayName=GetObjectWithContext)
+	UObject* GetObjectWithContext_BP(const UObject* ContextObject);
 
 	virtual UObject* GetObject(const FUP_EvaluationContext* Context);
 

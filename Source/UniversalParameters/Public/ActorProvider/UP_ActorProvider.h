@@ -10,7 +10,7 @@
 /**
  *  Blueprint instanceable wrapper around Actor
  */
-UCLASS(Abstract)
+UCLASS(Abstract, Blueprintable, BlueprintType, DefaultToInstanced, EditInlineNew, CollapseCategories, Category=UniversalParameters)
 class UNIVERSALPARAMETERS_API UUP_ActorProvider : public UUP_ObjectProvider
 {
 	GENERATED_BODY()
@@ -18,6 +18,9 @@ class UNIVERSALPARAMETERS_API UUP_ActorProvider : public UUP_ObjectProvider
 public:
 	UFUNCTION(BlueprintCallable, Category=UniversalParameters, DisplayName=GetActor)
 	AActor* GetActor_BP();
+	
+	UFUNCTION(BlueprintCallable, Category=UniversalParameters, DisplayName=GetActorWithContext)
+	AActor* GetActorWithContext_BP(const UObject* ContextObject);
 
 	virtual AActor* GetActor(const FUP_EvaluationContext* Context);
 

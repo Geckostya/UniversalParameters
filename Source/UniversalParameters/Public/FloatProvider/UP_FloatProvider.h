@@ -7,7 +7,7 @@
 /**
  *  Blueprint instanceable wrapper around float
  */
-UCLASS(Abstract, Blueprintable, BlueprintType, DefaultToInstanced, EditInlineNew, CollapseCategories)
+UCLASS(Abstract, Blueprintable, BlueprintType, DefaultToInstanced, EditInlineNew, CollapseCategories, Category=UniversalParameters)
 class UNIVERSALPARAMETERS_API UUP_FloatProvider : public UUP_Accessor
 {
 	GENERATED_BODY()
@@ -15,6 +15,9 @@ class UNIVERSALPARAMETERS_API UUP_FloatProvider : public UUP_Accessor
 public:
     UFUNCTION(BlueprintCallable, Category=UniversalParameters, DisplayName=GetValue)
     float GetValue_BP();
+	
+    UFUNCTION(BlueprintCallable, Category=UniversalParameters, DisplayName=GetValueWithContext)
+    float GetValueWithContext_BP(const UObject* ContextObject);
 
 	virtual float GetValue(const FUP_EvaluationContext* Context);
 
