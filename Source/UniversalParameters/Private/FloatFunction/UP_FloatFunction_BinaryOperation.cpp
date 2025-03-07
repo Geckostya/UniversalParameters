@@ -28,3 +28,15 @@ float UUP_FloatFunction_BinaryOperation::Eval(float Value, const FUP_EvaluationC
 	}
 	return 0;
 }
+
+FString UUP_FloatFunction_BinaryOperation::GetPreviewName_Implementation() const
+{
+	static const TMap<EUP_BinaryFunctionOperation, FString> OperationToName = {{
+		{EUP_BinaryFunctionOperation::Plus, TEXT("+")},
+		{EUP_BinaryFunctionOperation::Minus, TEXT("-")},
+		{EUP_BinaryFunctionOperation::Multiply, TEXT("*")},
+		{EUP_BinaryFunctionOperation::Divide, TEXT("/")},
+}};
+	const FString& OpName = OperationToName.FindChecked(Operation);
+	return FString::Printf(TEXT("[X %s %s]"), *OpName, *GetPreviewNameSafe(SecondParam));
+}

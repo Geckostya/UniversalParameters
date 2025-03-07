@@ -17,6 +17,8 @@ public:
 	UUP_IntProvider_RandomRange(const FObjectInitializer& Initializer);
 
 	virtual int32 GetValue(const FUP_EvaluationContext* Context) override;
+
+	virtual FString GetPreviewName_Implementation() const override;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, NoClear, Category=UniversalParameters)
 	UUP_IntProvider* From;

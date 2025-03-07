@@ -13,3 +13,8 @@ float UUP_FloatProvider_Function::GetValue(const FUP_EvaluationContext* Context)
 {
 	return UUP_FloatFunction::EvalSafe(Function, GetValueSafe(Value, Context), Context);
 }
+
+FString UUP_FloatProvider_Function::GetPreviewName_Implementation() const
+{
+	return FString::Printf(TEXT("%s(%s)"), *GetPreviewNameSafe(Function), *GetPreviewNameSafe(Value));
+}

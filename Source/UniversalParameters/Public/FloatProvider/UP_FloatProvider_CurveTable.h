@@ -15,6 +15,8 @@ class UNIVERSALPARAMETERS_API UUP_FloatProvider_CurveTable : public UUP_FloatPro
 	GENERATED_BODY()
 public:
 	virtual float GetValue(const FUP_EvaluationContext* Context) override;
+
+	virtual FString GetPreviewName_Implementation() const override;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=UniversalParameters, meta=(ShowOnlyInnerProperties))
 	FCurveTableRowHandle RowHandle;

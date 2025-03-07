@@ -63,3 +63,17 @@ bool UUP_BoolProvider_FloatCompare::GetValue(const FUP_EvaluationContext* Contex
 	}
 	return false;
 }
+
+FString UUP_BoolProvider_FloatCompare::GetPreviewName_Implementation() const
+{
+	static const TMap<EUP_CompareOperation, FString> OperationToName = {{
+			{EUP_CompareOperation::Less, TEXT("<")},
+			{EUP_CompareOperation::LessOrEqual, TEXT("<=")},
+			{EUP_CompareOperation::More, TEXT(">")},
+			{EUP_CompareOperation::MoreOrEqual, TEXT(">=")},
+			{EUP_CompareOperation::Equal, TEXT("==")},
+			{EUP_CompareOperation::NotEqual, TEXT("!=")},
+	}};
+	const FString& OpName = OperationToName.FindChecked(Operation);
+	return FString::Printf(TEXT("[%s %s %s]"), *GetPreviewNameSafe(FirstParam), *OpName, *GetPreviewNameSafe(SecondParam));
+}

@@ -30,10 +30,10 @@ EBTNodeResult::Type UBTTask_Wait_UniversalParameter::ExecuteTask(UBehaviorTreeCo
 FString UBTTask_Wait_UniversalParameter::GetStaticDescription() const
 {
 #if WITH_EDITORONLY_DATA
-	FString WaitProviderName = WaitTimeProvider != nullptr ? WaitTimeProvider->GetClass()->GetDisplayNameText().ToString() : TEXT("Null");
+	FString WaitProviderName = UUP_Accessor::GetPreviewNameSafe(WaitTimeProvider);
 	if (DeviationProvider != nullptr)
 	{
-		FString DeviationProviderName = DeviationProvider->GetClass()->GetDisplayNameText().ToString();
+		FString DeviationProviderName = DeviationProvider->GetPreviewName();
 		return FString::Printf(TEXT("%s: %s +-%s"), *UBTNode::GetStaticDescription(), *WaitProviderName, *DeviationProviderName);
 	}
 	return FString::Printf(TEXT("%s: %s"), *UBTNode::GetStaticDescription(), *WaitProviderName);

@@ -15,3 +15,8 @@ AActor* UUP_ActorProvider_Blackboard::GetActor(const FUP_EvaluationContext* Cont
 {
 	return Cast<AActor>(GetFromBB<UBlackboardKeyType_Object>(BlackboardKey, Context));
 }
+
+FString UUP_ActorProvider_Blackboard::GetPreviewName_Implementation() const
+{
+	return FString::Printf(TEXT("BBKey:%s"), *BlackboardKey.SelectedKeyName.ToString());
+}

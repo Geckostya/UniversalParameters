@@ -15,3 +15,8 @@ float UUP_FloatProvider_Select::GetValue(const FUP_EvaluationContext* Context)
 {
 	return UUP_BoolProvider::GetValueSafe(If, Context) ? GetValueSafe(Then, Context) : GetValueSafe(Else, Context);
 }
+
+FString UUP_FloatProvider_Select::GetPreviewName_Implementation() const
+{
+	return FString::Printf(TEXT("[%s ? %s : %s]"), *GetPreviewNameSafe(If), *GetPreviewNameSafe(Then), *GetPreviewNameSafe(Else));
+}

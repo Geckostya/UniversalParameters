@@ -19,3 +19,23 @@ float UUP_FloatFunction_UnaryOperation::Eval(float Value, const FUP_EvaluationCo
 	}
 	return 0;
 }
+
+FString UUP_FloatFunction_UnaryOperation::GetPreviewName_Implementation() const
+{
+	switch (Operation)
+	{
+	case EUP_UnaryFunctionOperation::Negate:
+		return TEXT("[-X]");
+
+	case EUP_UnaryFunctionOperation::Abs:
+		return TEXT("[|X|]");
+
+	case EUP_UnaryFunctionOperation::Square:
+		return TEXT("[X^2]");
+
+	case EUP_UnaryFunctionOperation::Sqrt:
+		return TEXT("Sqrt(X)");
+	default: ;
+	}
+	return TEXT("??");
+}

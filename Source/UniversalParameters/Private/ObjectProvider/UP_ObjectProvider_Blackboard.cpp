@@ -15,3 +15,8 @@ UObject* UUP_ObjectProvider_Blackboard::GetObject(const FUP_EvaluationContext* C
 {
 	return GetFromBB<UBlackboardKeyType_Object>(BlackboardKey, Context);
 }
+
+FString UUP_ObjectProvider_Blackboard::GetPreviewName_Implementation() const
+{
+	return FString::Printf(TEXT("BBKey:%s"), *BlackboardKey.SelectedKeyName.ToString());
+}

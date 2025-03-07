@@ -15,6 +15,8 @@ class UNIVERSALPARAMETERS_API UUP_FloatProvider_Constant : public UUP_FloatProvi
 public:
 	virtual float GetValue(const FUP_EvaluationContext* Context) override;
 
+	virtual FString GetPreviewName_Implementation() const override;
+	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=UniversalParameters)
 	float Value = 0.0f;
 };

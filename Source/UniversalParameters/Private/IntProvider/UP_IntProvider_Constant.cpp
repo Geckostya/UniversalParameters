@@ -7,3 +7,8 @@ int32 UUP_IntProvider_Constant::GetValue(const FUP_EvaluationContext* Context)
 {
 	return Value;
 }
+
+FString UUP_IntProvider_Constant::GetPreviewName_Implementation() const
+{
+	return FString::FromInt(Value);
+}

@@ -23,6 +23,8 @@ class UNIVERSALPARAMETERS_API UUP_FloatFunction_UnaryOperation : public UUP_Floa
 
 public:
 	virtual float Eval(float Value, const FUP_EvaluationContext* Context) override;
+
+	virtual FString GetPreviewName_Implementation() const override;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=UniversalParameters)
 	EUP_UnaryFunctionOperation Operation;

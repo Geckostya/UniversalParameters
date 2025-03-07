@@ -14,6 +14,7 @@ class UNIVERSALPARAMETERS_API UUP_BoolProvider_Constant : public UUP_BoolProvide
 
 public:
 	virtual bool GetValue(const FUP_EvaluationContext* Context) override;
+	FString GetPreviewName_Implementation() const;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=UniversalParameters)
 	bool bValue = false;

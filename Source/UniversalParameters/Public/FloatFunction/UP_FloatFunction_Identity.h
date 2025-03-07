@@ -14,4 +14,6 @@ class UNIVERSALPARAMETERS_API UUP_FloatFunction_Identity : public UUP_FloatFunct
 
 public:
 	virtual float Eval(float Value, const FUP_EvaluationContext* Context) override;
+
+	virtual FString GetPreviewName_Implementation() const override;
 };

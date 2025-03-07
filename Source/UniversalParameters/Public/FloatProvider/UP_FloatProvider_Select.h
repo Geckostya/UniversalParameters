@@ -20,6 +20,8 @@ public:
 	UUP_FloatProvider_Select(const FObjectInitializer& Initializer);
 
 	virtual float GetValue(const FUP_EvaluationContext* Context) override;
+
+	virtual FString GetPreviewName_Implementation() const override;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, NoClear, Category=UniversalParameters)
 	UUP_BoolProvider* If;

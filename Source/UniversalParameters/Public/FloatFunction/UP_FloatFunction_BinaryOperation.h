@@ -27,6 +27,8 @@ public:
 	UUP_FloatFunction_BinaryOperation(const FObjectInitializer& ObjectInitializer);
 
 	virtual float Eval(float Value, const FUP_EvaluationContext* Context) override;
+
+	virtual FString GetPreviewName_Implementation() const override;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=UniversalParameters)
 	EUP_BinaryFunctionOperation Operation;

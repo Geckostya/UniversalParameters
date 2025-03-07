@@ -24,4 +24,6 @@ public:
 
 	UPROPERTY(EditAnywhere, Category=UniversalParameters)
 	FBlackboardKeySelector BlackboardKey;
+
+	virtual FString GetPreviewName_Implementation() const override;
 };

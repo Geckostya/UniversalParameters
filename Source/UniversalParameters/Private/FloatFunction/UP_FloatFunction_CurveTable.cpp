@@ -4,3 +4,8 @@ float UUP_FloatFunction_CurveTable::Eval(float Value, const FUP_EvaluationContex
 {
 	return RowHandle.Eval(Value, "FloatFunction_CurveTable");
 }
+
+FString UUP_FloatFunction_CurveTable::GetPreviewName_Implementation() const
+{
+	return GetNameSafe(RowHandle.CurveTable) + ":" + RowHandle.RowName.ToString();
+}

@@ -35,7 +35,15 @@ UCLASS(Abstract)
 class UNIVERSALPARAMETERS_API UUP_Accessor : public UObject
 {
 	GENERATED_BODY()
+public:
+	UFUNCTION(BlueprintPure, BlueprintNativeEvent, Category=UniversalParameters)
+	FString GetPreviewName() const;
 	
+	
+	FORCEINLINE static FString GetPreviewNameSafe(const UUP_Accessor* Accessor)
+	{
+		return Accessor ? Accessor->GetPreviewName() : TEXT("Nullptr");
+	}
 protected:
 	template<typename TKeyType>
 	FORCEINLINE static typename TKeyType::FDataType GetFromBB(FBlackboardKeySelector& Key, const FUP_EvaluationContext* Context)

@@ -29,7 +29,9 @@ public:
 	UUP_BoolProvider_FloatCompare(const FObjectInitializer& ObjectInitializer);
 		
 	virtual bool GetValue(const FUP_EvaluationContext* Context) override;
-		
+
+	FString GetPreviewName_Implementation() const;
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, NoClear, Category=UniversalParameters)
 	UUP_FloatProvider* FirstParam;
 	

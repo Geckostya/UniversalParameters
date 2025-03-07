@@ -7,3 +7,8 @@ float UUP_FloatProvider_CurveTable::GetValue(const FUP_EvaluationContext* Contex
 {
 	return RowHandle.Eval(1, "FloatProvider_CurveTable");
 }
+
+FString UUP_FloatProvider_CurveTable::GetPreviewName_Implementation() const
+{
+	return GetNameSafe(RowHandle.CurveTable) + ":" + RowHandle.RowName.ToString();
+}

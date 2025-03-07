@@ -16,6 +16,8 @@ class UNIVERSALPARAMETERS_API UUP_IntProvider_Constant : public UUP_IntProvider
 
 public:
 	virtual int32 GetValue(const FUP_EvaluationContext* Context) override;
+
+	virtual FString GetPreviewName_Implementation() const override;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=UniversalParameters)
 	int32 Value = 0;

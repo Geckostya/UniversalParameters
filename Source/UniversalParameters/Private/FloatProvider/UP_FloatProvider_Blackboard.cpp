@@ -15,3 +15,8 @@ float UUP_FloatProvider_Blackboard::GetValue(const FUP_EvaluationContext* Contex
 	return GetFromBB<UBlackboardKeyType_Float>(BlackboardKey, Context);
 }
 
+FString UUP_FloatProvider_Blackboard::GetPreviewName_Implementation() const
+{
+	return FString::Printf(TEXT("BBKey:%s"), *BlackboardKey.SelectedKeyName.ToString());
+}
+

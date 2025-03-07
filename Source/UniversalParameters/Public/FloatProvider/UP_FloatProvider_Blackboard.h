@@ -21,6 +21,8 @@ public:
 	UUP_FloatProvider_Blackboard(const FObjectInitializer& ObjectInitializer);
 
 	virtual float GetValue(const FUP_EvaluationContext* Context) override;
+
+	virtual FString GetPreviewName_Implementation() const override;
 	
 	UPROPERTY(EditAnywhere, Category=UniversalParameters)
 	FBlackboardKeySelector BlackboardKey;

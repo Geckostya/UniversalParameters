@@ -22,6 +22,8 @@ public:
 
 	virtual UObject* GetObject(const FUP_EvaluationContext* Context) override;
 
+	virtual FString GetPreviewName_Implementation() const override;
+
 	UPROPERTY(EditAnywhere, Category=UniversalParameters)
 	FBlackboardKeySelector BlackboardKey;
 };

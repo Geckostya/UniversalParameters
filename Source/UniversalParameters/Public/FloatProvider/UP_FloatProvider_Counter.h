@@ -15,6 +15,8 @@ class UNIVERSALPARAMETERS_API UUP_FloatProvider_Counter : public UUP_FloatProvid
 public:
 	virtual float GetValue(const FUP_EvaluationContext* Context) override;
 
+	virtual FString GetPreviewName_Implementation() const override;
+	
 	// Base value to count from
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=UniversalParameters)
 	float BaseValue = 0.0f;

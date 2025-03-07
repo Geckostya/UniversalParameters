@@ -10,6 +10,11 @@ FUP_EvaluationContext_Blackboard::FUP_EvaluationContext_Blackboard(const UBehavi
 	Blackboard = BTComponent.GetBlackboardComponent();
 }
 
+FString UUP_Accessor::GetPreviewName_Implementation() const
+{
+	return FString::Printf(TEXT("[%s]"), *GetClass()->GetDisplayNameText().ToString());
+}
+
 TUniquePtr<FUP_EvaluationContext> UUP_Accessor::TryGetContextFromObject(const UObject* Object)
 {
 	FUP_EvaluationContext* Context = nullptr;

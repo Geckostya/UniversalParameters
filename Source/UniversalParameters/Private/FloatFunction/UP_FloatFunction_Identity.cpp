@@ -4,3 +4,8 @@ float UUP_FloatFunction_Identity::Eval(float Value, const FUP_EvaluationContext*
 {
 	return Value;
 }
+
+FString UUP_FloatFunction_Identity::GetPreviewName_Implementation() const
+{
+	return "Id";
+}

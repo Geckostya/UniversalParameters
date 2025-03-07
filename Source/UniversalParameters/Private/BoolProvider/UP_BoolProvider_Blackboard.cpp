@@ -14,3 +14,8 @@ bool UUP_BoolProvider_Blackboard::GetValue(const FUP_EvaluationContext* Context)
 {
 	return GetFromBB<UBlackboardKeyType_Bool>(BlackboardKey, Context);
 }
+
+FString UUP_BoolProvider_Blackboard::GetPreviewName_Implementation() const
+{
+	return FString::Printf(TEXT("BBKey:%s"), *BlackboardKey.SelectedKeyName.ToString());
+}
