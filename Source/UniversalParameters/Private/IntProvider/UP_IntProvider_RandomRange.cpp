@@ -15,9 +15,3 @@ int32 UUP_IntProvider_RandomRange::GetValue(const FUP_EvaluationContext* Context
 {
 	return FMath::RandRange(GetValueSafe(From, Context), GetValueSafe(To, Context));
 }
-
-void UUP_IntProvider_RandomRange::GetBBKeys(TArray<FBlackboardKeySelector*>& Keys)
-{
-	GetBBKeysSafe(From, Keys);
-	GetBBKeysSafe(To, Keys);
-}

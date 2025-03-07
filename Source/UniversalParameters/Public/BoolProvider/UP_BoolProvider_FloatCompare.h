@@ -41,6 +41,4 @@ public:
 
 protected:
 	bool CalcValue(float FirstSafe, float SecondSafe);
-	
-	virtual void GetBBKeys(TArray<FBlackboardKeySelector*>& Keys) override;
 };

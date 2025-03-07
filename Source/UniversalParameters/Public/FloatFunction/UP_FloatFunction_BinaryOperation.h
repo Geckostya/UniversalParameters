@@ -33,7 +33,4 @@ public:
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, NoClear, Category=UniversalParameters)
 	UUP_FloatProvider* SecondParam;	
-
-protected:
-	virtual void GetBBKeys(TArray<FBlackboardKeySelector*>& Keys) override;
 };

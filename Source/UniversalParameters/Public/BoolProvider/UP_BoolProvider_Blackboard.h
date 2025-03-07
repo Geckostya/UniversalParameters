@@ -23,7 +23,4 @@ public:
 
 	UPROPERTY(EditAnywhere, Category=UniversalParameters)
 	FBlackboardKeySelector BlackboardKey;
-
-protected:
-	virtual void GetBBKeys(TArray<FBlackboardKeySelector*>& Keys) override;
 };

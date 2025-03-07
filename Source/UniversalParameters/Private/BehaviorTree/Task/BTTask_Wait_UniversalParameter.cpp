@@ -16,8 +16,6 @@ UBTTask_Wait_UniversalParameter::UBTTask_Wait_UniversalParameter(const FObjectIn
 void UBTTask_Wait_UniversalParameter::InitializeFromAsset(UBehaviorTree& Asset)
 {
 	Super::InitializeFromAsset(Asset);
-	UUP_Accessor::InitializeWithBTSafe(WaitTimeProvider, this);
-	UUP_Accessor::InitializeWithBTSafe(DeviationProvider, this);
 }
 
 EBTNodeResult::Type UBTTask_Wait_UniversalParameter::ExecuteTask(UBehaviorTreeComponent& OwnerComp, uint8* NodeMemory)

@@ -15,8 +15,3 @@ UObject* UUP_ObjectProvider_Blackboard::GetObject(const FUP_EvaluationContext* C
 {
 	return GetFromBB<UBlackboardKeyType_Object>(BlackboardKey, Context);
 }
-
-void UUP_ObjectProvider_Blackboard::GetBBKeys(TArray<FBlackboardKeySelector*>& Keys)
-{
-	Keys.Add(&BlackboardKey);
-}

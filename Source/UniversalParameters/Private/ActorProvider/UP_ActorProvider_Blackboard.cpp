@@ -15,9 +15,3 @@ AActor* UUP_ActorProvider_Blackboard::GetActor(const FUP_EvaluationContext* Cont
 {
 	return Cast<AActor>(GetFromBB<UBlackboardKeyType_Object>(BlackboardKey, Context));
 }
-
-void UUP_ActorProvider_Blackboard::GetBBKeys(TArray<FBlackboardKeySelector*>& Keys)
-{
-	Keys.Add(&BlackboardKey);
-}
-

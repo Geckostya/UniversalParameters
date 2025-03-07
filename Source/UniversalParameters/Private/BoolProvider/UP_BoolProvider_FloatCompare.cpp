@@ -63,9 +63,3 @@ bool UUP_BoolProvider_FloatCompare::GetValue(const FUP_EvaluationContext* Contex
 	}
 	return false;
 }
-
-void UUP_BoolProvider_FloatCompare::GetBBKeys(TArray<FBlackboardKeySelector*>& Keys)
-{
-	GetBBKeysSafe(FirstParam, Keys);
-	GetBBKeysSafe(SecondParam, Keys);
-}

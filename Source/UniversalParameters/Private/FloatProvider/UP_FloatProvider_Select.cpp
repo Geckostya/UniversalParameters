@@ -15,10 +15,3 @@ float UUP_FloatProvider_Select::GetValue(const FUP_EvaluationContext* Context)
 {
 	return UUP_BoolProvider::GetValueSafe(If, Context) ? GetValueSafe(Then, Context) : GetValueSafe(Else, Context);
 }
-
-void UUP_FloatProvider_Select::GetBBKeys(TArray<FBlackboardKeySelector*>& Keys)
-{
-	GetBBKeysSafe(If, Keys);
-	GetBBKeysSafe(Then, Keys);
-	GetBBKeysSafe(Else, Keys);
-}

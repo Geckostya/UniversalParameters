@@ -14,8 +14,3 @@ bool UUP_BoolProvider_Blackboard::GetValue(const FUP_EvaluationContext* Context)
 {
 	return GetFromBB<UBlackboardKeyType_Bool>(BlackboardKey, Context);
 }
-
-void UUP_BoolProvider_Blackboard::GetBBKeys(TArray<FBlackboardKeySelector*>& Keys)
-{
-	Keys.Add(&BlackboardKey);
-}

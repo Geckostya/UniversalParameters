@@ -28,8 +28,3 @@ float UUP_FloatFunction_BinaryOperation::Eval(float Value, const FUP_EvaluationC
 	}
 	return 0;
 }
-
-void UUP_FloatFunction_BinaryOperation::GetBBKeys(TArray<FBlackboardKeySelector*>& Keys)
-{
-	GetBBKeysSafe(SecondParam, Keys);
-}

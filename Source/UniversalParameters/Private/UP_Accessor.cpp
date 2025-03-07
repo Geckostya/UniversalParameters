@@ -10,23 +10,6 @@ FUP_EvaluationContext_Blackboard::FUP_EvaluationContext_Blackboard(const UBehavi
 	Blackboard = BTComponent.GetBlackboardComponent();
 }
 
-void UUP_Accessor::InitializeWithBT(UBTNode* BehaviorNode)
-{
-	if (UBlackboardData* BBAsset = BehaviorNode->GetBlackboardAsset())
-	{
-		TArray<FBlackboardKeySelector*> Keys;
-		GetBBKeys(Keys);
-		for (FBlackboardKeySelector* Key : Keys)
-		{
-			Key->ResolveSelectedKey(*BBAsset);            
-		}
-	}
-}
-
-void UUP_Accessor::GetBBKeys(TArray<FBlackboardKeySelector*>& Keys)
-{
-}
-
 TUniquePtr<FUP_EvaluationContext> UUP_Accessor::TryGetContextFromObject(const UObject* Object)
 {
 	FUP_EvaluationContext* Context = nullptr;
